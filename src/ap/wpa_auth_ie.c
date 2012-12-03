@@ -225,6 +225,9 @@ int wpa_write_rsn_ie(struct wpa_auth_config *conf, u8 *buf, size_t len,
 	if (rsn_testing)
 		capab |= BIT(8) | BIT(14) | BIT(15);
 #endif /* CONFIG_RSN_TESTING */
+
+        capab |= 0x000c; // WPA_CAPABILITY_SPP_A_MSDU_CAPABLE/REQUIRED
+
 	WPA_PUT_LE16(pos, capab);
 	pos += 2;
 
